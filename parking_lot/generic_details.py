@@ -1,4 +1,4 @@
-from abc import abstractmethod
+from abc import ABCMeta, abstractmethod
 
 
 class VehicleSize:
@@ -6,8 +6,9 @@ class VehicleSize:
     COMPACT = 1
     LARGE = 2
 
-    
-class Vehicle:
+# blueprint for vehicles
+class Vehicle(metaclass = ABCMeta):
+
     def __init__(self, vehicle_size, licence_plate_no, spot_size) -> None:
         self.vehicle_size = vehicle_size
         self.licence_plate_no = licence_plate_no
@@ -25,6 +26,5 @@ class Vehicle:
     @abstractmethod
     def can_fit_in_spot(self,spot):
         pass
-
 
         
